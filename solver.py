@@ -41,69 +41,31 @@ def findOpen(board):
 
 
 def checkBox(board, x, y, num):
-    # if x < 2:
-    #     xMin = 0
-    #     xMax = 3
-    # elif 2 < x < 6:
-    #     xMin = 3
-    #     xMax = 6
-    # elif x > 6:
-    #     xMin = 6
-    #     xMax = 9
-    # if y < 2:
-    #     yMin = 0
-    #     yMax = 3
-    # elif 2 < y < 6:
-    #     yMin = 3
-    #     yMax = 6
-    # elif y > 6:
-    #     yMin = 6
-    #     yMax = 9
-        
+    if x < 2:
+        xMin = 0
+        xMax = 3
+    elif 2 < x < 6:
+        xMin = 3
+        xMax = 6
+    elif x > 6:
+        xMin = 6
+        xMax = 9
+    if y < 2:
+        yMin = 0
+        yMax = 3
+    elif 2 < y < 6:
+        yMin = 3
+        yMax = 6
+    elif y > 6:
+        yMin = 6
+        yMax = 9
+
     # checks left 3 big boxes
-    if x < 2 and y < 2:
-        for i in range(3):
-            for j in range(3):
-                if num == board[i][j]:
-                    return False
-        return True
-
-    if 2 < x < 6 and y < 2:
-        for i in range(3, 6):
-            for j in range(3):
-                if num == board[i][j]:
-                    return False
-        return True
-
-    if x > 6 and y < 2:
-        for i in range(6, 9):
-            for j in range(3):
-                if num == board[i][j]:
-                    return False
-        return True
-
-    # checks top 2 big boxes
-    if x > 2 and 2 < y < 6:
-        for i in range(3):
-            for j in range(3, 6):
-                if num == board[i][j]:
-                    return False
-        return True
-
-    if x > 2 and y > 6:
-        for i in range(3):
-            for j in range(6, 9):
-                if num == board[i][j]:
-                    return False
-        return True
-
-    # checks remaining
-    if x > 2 and y > 6:
-        for i in range(3):
-            for j in range(6, 9):
-                if num == board[i][j]:
-                    return False
-        return True
+    for i in range(xMin, xMax):
+        for j in range(yMin, yMax):
+            if num == board[i][j]:
+                return False
+    return True
 
 
 def check(board, x, y, num):
