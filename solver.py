@@ -41,6 +41,7 @@ def findOpen(board):
 
 
 def checkBox(board, x, y, num):
+    xMin = xMax = yMin = yMax = 0
     if x < 2:
         xMin = 0
         xMax = 3
@@ -50,6 +51,7 @@ def checkBox(board, x, y, num):
     elif x > 6:
         xMin = 6
         xMax = 9
+
     if y < 2:
         yMin = 0
         yMax = 3
@@ -65,6 +67,7 @@ def checkBox(board, x, y, num):
         for j in range(yMin, yMax):
             if num == board[i][j]:
                 return False
+    print("works!")
     return True
 
 
@@ -76,8 +79,10 @@ def check(board, x, y, num):
         if board[i][y] == num:
             return False
 
-    if not checkBox():
+    if not checkBox(board, x, y, num):
         return False
+
+    return True
 
 
 def solve(board):
@@ -96,4 +101,5 @@ def solve(board):
 
 
 printBoard(board)
-print(solve(board))
+print(check(board, 1, 1, 8))
+# print(solve(board))
