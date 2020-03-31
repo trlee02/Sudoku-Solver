@@ -1,16 +1,13 @@
-import os
-clear = lambda: os.system('cls')
-
 board = [
-            [0, 0, 0, 2, 6, 0, 7, 0, 1], 
-            [6, 8, 0, 0, 7, 0, 0, 9, 0], 
-            [1, 9, 0, 0, 0, 4, 5, 0, 0], 
-            [8, 2, 0, 1, 0, 0, 0, 4, 0], 
-            [0, 0, 4, 6, 0, 2, 9, 0, 0], 
-            [0, 5, 0, 0, 0, 3, 0, 2, 8], 
-            [0, 0, 9, 3, 0, 0, 0, 7, 4], 
-            [0, 4, 0, 0, 5, 0, 0, 3, 6], 
-            [7, 0, 3, 0, 1, 8, 0, 0, 0], 
+            [0, 0, 0, 2, 6, 0, 7, 0, 1],
+            [6, 8, 0, 0, 7, 0, 0, 9, 0],
+            [1, 9, 0, 0, 0, 4, 5, 0, 0],
+            [8, 2, 0, 1, 0, 0, 0, 4, 0],
+            [0, 0, 4, 6, 0, 2, 9, 0, 0],
+            [0, 5, 0, 0, 0, 3, 0, 2, 8],
+            [0, 0, 9, 3, 0, 0, 0, 7, 4],
+            [0, 4, 0, 0, 5, 0, 0, 3, 6],
+            [7, 0, 3, 0, 1, 8, 0, 0, 0],
 ]
 
 # board = [
@@ -62,7 +59,6 @@ def checkBox(board, x, y, num):
         yMin = 6
         yMax = 9
 
-    #print(f"{xMin}, {xMax}, {yMin}, {yMax}")
     # checks left 3 big boxes
     for i in range(xMin, xMax):
         for j in range(yMin, yMax):
@@ -101,14 +97,14 @@ def solve(board):
             board[row][col] = i
             # clear()
             # printBoard(board)
-            # Must be inside because as soon as a number is found move on to the next one
+            # Must be inside because as soon as a number
+            # is found move on to the next one
             # If it was outside the if, and a number was not found
             # It would leave it blank and then keep trying to check that number
             if solve(board):
                 return True
 
         # When no number is found to fill, backtrack
-        # 
         board[row][col] = 0
 
     # if no number was placed return False
